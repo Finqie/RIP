@@ -1,0 +1,24 @@
+{% extends 'library/base.html' %}
+
+{% block title %}
+Поставщики
+{% endblock %}
+{% block content %}
+        <div class="container">
+                {% for d in libraries %}
+                    <div class="card shadow ">
+                        <div class="card-body">
+                            <h5 class="p-3 mb-0 bg-primary text-white card-title mx-auto text-center">{{ d.name }}</h5>
+                            <p class = "p-2 mb-auto mx-auto text-center"><strong>Контактный номер библиотеки:</strong> {{d.number}}</p>
+                            <div class="mb-0 mx-auto ">
+                                {% for model in d.Post.all %}
+                                <p class = "p-1 mb-0 bg-success text-white mx-auto text-center"><strong class="pb-1 ">Поставщик: {{ model.name }}</strong></p>
+                                    <p class = "ps-2 mb-1 mx-auto text-center"><strong class="pb-1 ">Поставляемый продукт:</strong> {{ model.field }}</p>
+                                {% endfor %}
+                            </div>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+{% endblock %}

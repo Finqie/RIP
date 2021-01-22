@@ -1,0 +1,22 @@
+{% extends 'library/base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+{% block content %}
+        <div class="container ">
+                {% for model in book_list %}
+                <div class="col mt-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h3 class="p-1 mb-0 card-title mx-auto text-center">{{ model.library.name }}</h3>
+                            <h5 class="p-1 mx-auto text-center">{{model.name}}</h5>
+                            <p><strong>В наличии:</strong><span class="font-monospace "> {{model.quantity}} книги</span></p>
+                            <p><strong>Автор:</strong> <span class="font-monospace "> {{model.author}}</span></p>
+                            <p><strong>Описание:</strong> <span class="font-monospace ">{{model.description}}</span></p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+{% endblock %}
